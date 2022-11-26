@@ -53,7 +53,7 @@ export class ControladorReservas{
             const diffInDays = Math.floor((salida - entrada ) / (1000 * 60 * 60 * 24));
             let costo=0
             console.log("numero personas ",maxPersonas , numeroPersonas);
-            if(diffInDays >0 ){
+           
                 if(maxPersonas >= numeroPersonas){
                     costo = Number(datos__habitacion.valorNoche)*Number(diffInDays);
                     datosreserva.costoReserva=costo
@@ -70,13 +70,7 @@ export class ControladorReservas{
                     })
                 }
                 
-            }else {
-                response.status(400).json({
-                    "mensaje":"No se pueden reservar tantos días en esta habitación"+error,
-                    "datos":null,
-                    "estado":true
-                })
-            }
+           
             
         }catch(error){
             response.status(400).json({
